@@ -10,6 +10,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: 
-          cd py
+      - run:  cd py
           py test
