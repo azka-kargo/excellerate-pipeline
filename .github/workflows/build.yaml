@@ -13,11 +13,12 @@ jobs:
       steps:
         - name: Checkout code
           uses: actions/checkout@v2
+
+        - name : run docker
           run : |
             cd node
             docker build -t temp/build
 
-          
         -  name: deploy to repo
           uses: actions/checkout@v2
           run : |
