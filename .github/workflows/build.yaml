@@ -8,20 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    test:
-      name: Test Application 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    name: Test Application 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name : run docker
-          run : |
-            cd node
-            docker build -t temp/build
+      - name : run docker
+        run : |
+          cd node
+          docker build -t temp/build
 
-        -  name: deploy to repo
-          uses: actions/checkout@v2
-          run : |
-            docker login -u zkanto -p 12345678@
-            docker tag temp/build zkanto/excellerate:1234
-            docker push zkanto/excellerate:1234
+      -  name: deploy to repo
+        uses: actions/checkout@v2
+        run : |
+          docker login -u zkanto -p 12345678@
+          docker tag temp/build zkanto/excellerate:1234
+          docker push zkanto/excellerate:1234
